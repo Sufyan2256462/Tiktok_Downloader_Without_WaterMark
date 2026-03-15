@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 230 25% 7%;
+    --foreground: 220 20% 95%;
+
+    --card: 230 20% 12%;
+    --card-foreground: 220 20% 95%;
+
+    --popover: 230 20% 12%;
+    --popover-foreground: 220 20% 95%;
+
+    --primary: 250 85% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 20% 16%;
+    --secondary-foreground: 220 20% 90%;
+
+    --muted: 230 15% 18%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 200 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 15% 20%;
+    --input: 230 15% 20%;
+    --ring: 250 85% 65%;
+
+    --radius: 0.75rem;
+
+    --neon-glow: 250 85% 65%;
+    --neon-blue: 200 90% 55%;
+    --glass-bg: 230 20% 12%;
+    --glass-border: 230 15% 25%;
+
+    --sidebar-background: 230 25% 7%;
+    --sidebar-foreground: 220 20% 95%;
+    --sidebar-primary: 250 85% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 20% 16%;
+    --sidebar-accent-foreground: 220 20% 90%;
+    --sidebar-border: 230 15% 20%;
+    --sidebar-ring: 250 85% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-glass-border rounded-2xl;
+    box-shadow: 
+      0 0 30px -10px hsl(var(--neon-glow) / 0.15),
+      0 20px 60px -15px hsl(0 0% 0% / 0.5),
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.05);
+  }
+
+  .neon-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--neon-blue)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .neon-border {
+    border: 1px solid hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 20px -5px hsl(var(--neon-glow) / 0.2);
+  }
+
+  .gradient-bg {
+    background: 
+      radial-gradient(ellipse 80% 60% at 50% -20%, hsl(var(--primary) / 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 50%, hsl(var(--neon-blue) / 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 20% 80%, hsl(var(--primary) / 0.06), transparent),
+      hsl(var(--background));
+  }
+}
